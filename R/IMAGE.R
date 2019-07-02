@@ -1,22 +1,22 @@
 
 #' High-powered detection of genetic effects on DNA methylation
 #'
-#' This package Perform high-powered detection of genetic effects on DNA
+#' Perform high-powered detection of genetic effects on DNA
 #' methylation using integrated methylation QTL mapping and allele-specific
 #' analysis.
 #'
 #'
 #' @param geno 	a data list containing the genotype data
-#' @param data a data list containing the methylation data.
+#' @param data a data list containing the methylation data
 #' @param K a known kinship matrix. This matrix should be a positive semi-definite
-#' matrix with dimensions equal to the samplie size.
-#' @param Covariates a matrix containing the covariates subject to adjustment (Default = NULL).
-#' @param numCore a positive integer specifying the number of cores for parallel computing (default = 1).
+#' matrix with dimensions equal to the sample size
+#' @param Covariates a matrix containing the covariates subject to adjustment (Default = NULL)
+#' @param numCore a positive integer specifying the number of cores for parallel computing (default = 1)
 #' @param fit.maxiter a positive integer specifying the maximum number of iterations
-#' when fitting the generalized linear mixed model (default = 500).
+#' when fitting the generalized linear mixed model (default = 500)
 #' @param fit.tol a positive number specifying tolerance, the difference threshold
-#' for parameter estimates below which iterations should be stopped (default = 1e-5).
-#' @param verbose include verbose output.
+#' for parameter estimates below which iterations should be stopped (default = 1e-5)
+#' @param verbose include verbose output
 #'
 #'
 #' @return A \code{data.frame} containing the following named elements:
@@ -25,7 +25,7 @@
 #'   \item \code{numIDV:} number of observations of SNP-CpG pair being analyzed
 #'   \item \code{beta:} the fixed effect parameter estimate for the predictor of interest
 #'   \item \code{se_beta:} the standard deviation of fixed effect
-#'   \item \code{pvalue:} P value for the fixed effect, based on the wald test
+#'   \item \code{pvalue:} P value for the fixed effect, based on the Wald test
 #'   \item \code{h2:} heritability of the transformed rate
 #'   \item \code{sigma2:} total variance component
 #'   \item \code{converged:} a logical indicator for convergence

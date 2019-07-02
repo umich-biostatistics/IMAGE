@@ -10,22 +10,22 @@ image(geno, data, K, Covariates = NULL, numCore = 1,
 \arguments{
 \item{geno}{a data list containing the genotype data}
 
-\item{data}{a data list containing the methylation data.}
+\item{data}{a data list containing the methylation data}
 
 \item{K}{a known kinship matrix. This matrix should be a positive semi-definite
-matrix with dimensions equal to the samplie size.}
+matrix with dimensions equal to the sample size}
 
-\item{Covariates}{a matrix containing the covariates subject to adjustment (Default = NULL).}
+\item{Covariates}{a matrix containing the covariates subject to adjustment (Default = NULL)}
 
-\item{numCore}{a positive integer specifying the number of cores for parallel computing (default = 1).}
+\item{numCore}{a positive integer specifying the number of cores for parallel computing (default = 1)}
 
 \item{fit.maxiter}{a positive integer specifying the maximum number of iterations
-when fitting the generalized linear mixed model (default = 500).}
+when fitting the generalized linear mixed model (default = 500)}
 
 \item{fit.tol}{a positive number specifying tolerance, the difference threshold
-for parameter estimates below which iterations should be stopped (default = 1e-5).}
+for parameter estimates below which iterations should be stopped (default = 1e-5)}
 
-\item{verbose}{include verbose output.}
+\item{verbose}{include verbose output}
 }
 \value{
 A \code{data.frame} containing the following named elements:
@@ -34,7 +34,7 @@ A \code{data.frame} containing the following named elements:
 \item \code{numIDV:} number of observations of SNP-CpG pair being analyzed
 \item \code{beta:} the fixed effect parameter estimate for the predictor of interest
 \item \code{se_beta:} the standard deviation of fixed effect
-\item \code{pvalue:} P value for the fixed effect, based on the wald test
+\item \code{pvalue:} P value for the fixed effect, based on the Wald test
 \item \code{h2:} heritability of the transformed rate
 \item \code{sigma2:} total variance component
 \item \code{converged:} a logical indicator for convergence
@@ -42,7 +42,7 @@ A \code{data.frame} containing the following named elements:
 }
 }
 \description{
-This package Perform high-powered detection of genetic effects on DNA
+Perform high-powered detection of genetic effects on DNA
 methylation using integrated methylation QTL mapping and allele-specific
 analysis.
 }
