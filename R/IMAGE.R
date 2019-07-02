@@ -47,9 +47,11 @@
 #'   res=image(geno,data,K)
 #' }
 #'
-#' # We've saved the results of the example above to show an example of
-#' # the outputs IMAGE produces:
-#' data(example_results)
+#' \donttest{
+#'   # We've saved the results of the example above to show an example of
+#'   # the outputs IMAGE produces:
+#'   data(example_results)
+#' }
 #'
 #' @import parallel
 #' @import foreach
