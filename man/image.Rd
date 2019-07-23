@@ -63,6 +63,30 @@ analysis.
   data(example_results)
 }
 
+# Toy example for testing purposes only:
+
+geno <- list()
+geno$hap1 = matrix(sample(c(0,1),25, replace = TRUE, prob = c(0.6,0.4)),
+                    nrow = 5, ncol = 5)
+geno$hap2 = matrix(sample(c(0,1),25, replace = TRUE, prob = c(0.6,0.4)),
+                    nrow = 5, ncol = 5)
+
+data <- list()
+data$r = matrix(sample(0:50,25, replace = TRUE), nrow = 5, ncol = 5)
+data$y = matrix(sample(0:50,25, replace = TRUE), nrow = 5, ncol = 5)
+data$r1 = matrix(sample(0:50,25, replace = TRUE), nrow = 5, ncol = 5)
+data$r2 = matrix(sample(0:50,25, replace = TRUE), nrow = 5, ncol = 5)
+data$y1 = matrix(sample(0:50,25, replace = TRUE), nrow = 5, ncol = 5)
+data$y2 = matrix(sample(0:50,25, replace = TRUE), nrow = 5, ncol = 5)
+
+K = matrix(runif(25,-0.1,0.1), nrow = 5, ncol = 5)
+
+res=image(geno,data,K)
+
+\dontshow{
+  closeAllConnections()
+}
+
 }
 \references{
 Fan, Y., Vilgalys, T.P., Sun, S., Peng, Q., Tung, J. and Zhou, X.,

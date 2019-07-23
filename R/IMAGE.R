@@ -62,16 +62,20 @@
 #'                     nrow = 5, ncol = 5)
 #'
 #' data <- list()
-#' data$r = matrix(sample(0:50,25, replace = T), nrow = 5, ncol = 5)
-#' data$y = matrix(sample(0:50,25, replace = T), nrow = 5, ncol = 5)
-#' data$r1 = matrix(sample(0:50,25, replace = T), nrow = 5, ncol = 5)
-#' data$r2 = matrix(sample(0:50,25, replace = T), nrow = 5, ncol = 5)
-#' data$y1 = matrix(sample(0:50,25, replace = T), nrow = 5, ncol = 5)
-#' data$y2 = matrix(sample(0:50,25, replace = T), nrow = 5, ncol = 5)
+#' data$r = matrix(sample(0:50,25, replace = TRUE), nrow = 5, ncol = 5)
+#' data$y = matrix(sample(0:50,25, replace = TRUE), nrow = 5, ncol = 5)
+#' data$r1 = matrix(sample(0:50,25, replace = TRUE), nrow = 5, ncol = 5)
+#' data$r2 = matrix(sample(0:50,25, replace = TRUE), nrow = 5, ncol = 5)
+#' data$y1 = matrix(sample(0:50,25, replace = TRUE), nrow = 5, ncol = 5)
+#' data$y2 = matrix(sample(0:50,25, replace = TRUE), nrow = 5, ncol = 5)
 #'
 #' K = matrix(runif(25,-0.1,0.1), nrow = 5, ncol = 5)
 #'
 #' res=image(geno,data,K)
+#'
+#' \dontshow{
+#'   closeAllConnections()
+#' }
 #'
 #' @import parallel
 #' @import foreach
@@ -103,13 +107,16 @@ image <- function(geno,data,K,Covariates=NULL,numCore=1,fit.maxiter=500,fit.tol=
   n=nrow(geno$hap1)
   registerDoParallel(cores=numCore)
 
+  # cleanup connections
+  #on.exit(expr = closeAllConnections(), add = FALSE)
+
   if(is.null(Covariates)){
     numCov <- 0
   }else{
     numCov     <- dim(Covariates)[2]
     Covariates <- as.matrix(Covariates)
   }
-  iVAR <- NULL # made explicit to apease R CMD CHECK
+  iVar <- NULL # made explicit to apease R CMD CHECK
   resBMM <- foreach(iVar=1:m, .combine=rbind, .errorhandling = 'remove')%dopar%{
 
     res <- data.frame()
