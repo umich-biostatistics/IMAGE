@@ -419,7 +419,7 @@ PQLseq.AI <- function(model0, RelatednessMatrix, tau = rep(0, length(Relatedness
 
     P <- try(Hinv - tcrossprod(tcrossprod(HinvX, chol2inv(chol( XHinvX ))), HinvX))
 
-    if(class(P) == "try-error"){
+    if(inherits(P, "try-error")){
       stop("Error in P matrix calculation!")
     }
 
@@ -508,7 +508,7 @@ PQLseq.AI <- function(model0, RelatednessMatrix, tau = rep(0, length(Relatedness
 
       P <- try(Hinv - tcrossprod(tcrossprod(HinvX, chol2inv(chol( XHinvX ))), HinvX))
 
-      if(class(P) == "try-error"){
+      if(inherits(P, "try-error")){
         stop("Error in P matrix calculation!")
       }
       PY <- crossprod(P, Y)
@@ -650,7 +650,7 @@ PQLseq2.AI <- function(model0, RelatednessMatrix, tau = rep(0, length(Relatednes
 
     P <- try(Hinv - tcrossprod(tcrossprod(HinvX, chol2inv(chol( XHinvX ))), HinvX))
 
-    if(class(P) == "try-error"){
+    if(inherits(P, "try-error")){
       stop("Error in P matrix calculation!")
     }
 
@@ -787,7 +787,7 @@ PQLseq2.AI <- function(model0, RelatednessMatrix, tau = rep(0, length(Relatednes
 
       P <- try(Hinv - tcrossprod(tcrossprod(HinvX, chol2inv(chol( XHinvX ))), HinvX))
 
-      if(class(P) == "try-error"){
+      if(inherits(P, "try-error")){
         stop("Error in P matrix calculation!")
       }
 
